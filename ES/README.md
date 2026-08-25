@@ -45,10 +45,7 @@ Material del curso de **Métodos Computacionales en Física**.
 |---|---|---|
 | 21–23 | [Métodos de Integración de EDO](./Clases_21_22_23_Metodos_de_integracion_EDO.ipynb) | Definiciones básicas y sistemas de EDO de primer orden, método de Euler, métodos de Verlet y leapfrog, Runge-Kutta de segundo orden (rk2) y cuarto orden (rk4), estabilidad y atractores, espacio fásico, método de Runge-Kutta-Fehlberg (rk45). |
 
-### 6. Aplicaciones a la física
-*Próximamente.*
-
-### 7. Estadística y simulación
+### 8. Estadística y simulación
 
 | # | Notebook | Descripción |
 |---|---|---|
