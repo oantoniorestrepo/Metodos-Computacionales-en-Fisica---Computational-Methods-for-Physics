@@ -51,9 +51,6 @@ Course material for **Computational Methods in Physics**.
 |---|---|---|
 | 24–26 | [Statistics and Monte Carlo](./Classes_24_25_26_Statistics_and_Monte_Carlo.ipynb) | Random number generation and descriptive statistics (uniform, exponential, normal and Poisson distributions), Monte Carlo methods in physics: random walks, exponential decay, Poisson processes, least-squares linear regression, law of large numbers. |
 
-### 7. Applications to physics
-*Coming soon.*
-
 ---
 
 ## 🖼️ Figures
