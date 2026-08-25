@@ -1,5 +1,5 @@
 # Métodos Computacionales en Física / Computational Methods in Physics
-[![Notebooks CI](https://github.com/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/actions/workflows/notebooks.yml/badge.svg)](https://github.com/USUARIO/REPOSITORIO/actions/workflows/notebooks.yml)
+[![Notebooks CI](https://github.com/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/actions/workflows/notebooks.yml/badge.svg)](https://github.com/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/actions/workflows/notebooks.yml)
 
 [![Language: Spanish](https://img.shields.io/badge/Language-Spanish-red.svg)](./ES/)
 [![Language: English](https://img.shields.io/badge/Language-English-blue.svg)](./EN/)
