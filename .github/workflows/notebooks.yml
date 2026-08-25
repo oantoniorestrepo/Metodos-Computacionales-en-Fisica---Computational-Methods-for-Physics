@@ -1,0 +1,77 @@
+name: Ejecutar notebooks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-notebooks:
+    name: Ejecutar notebooks (${{ matrix.language }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ES, EN]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install papermill
+
+      - name: Ejecutar notebooks
+        shell: bash
+        run: |
+          set -e
+
+          LANGUAGE="${{ matrix.language }}"
+
+          echo "======================================"
+          echo "Ejecutando notebooks de: $LANGUAGE"
+          echo "======================================"
+
+          mkdir -p /tmp/executed_notebooks/$LANGUAGE
+
+          shopt -s nullglob
+          notebooks=("$LANGUAGE"/*.ipynb)
+
+          if [ ${#notebooks[@]} -eq 0 ]; then
+            echo "ERROR: No se encontraron notebooks en $LANGUAGE/"
+            exit 1
+          fi
+
+          for notebook in "${notebooks[@]}"; do
+
+            filename=$(basename "$notebook")
+
+            echo ""
+            echo "--------------------------------------"
+            echo "Ejecutando: $notebook"
+            echo "--------------------------------------"
+
+            papermill \
+              "$notebook" \
+              "/tmp/executed_notebooks/$LANGUAGE/${filename%.ipynb}_output.ipynb"
+
+          done
+
+      - name: Guardar notebooks ejecutados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebooks-ejecutados-${{ matrix.language }}
+          path: /tmp/executed_notebooks/${{ matrix.language }}/
+          if-no-files-found: warn
