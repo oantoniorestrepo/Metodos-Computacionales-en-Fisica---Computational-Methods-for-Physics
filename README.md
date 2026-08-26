@@ -24,13 +24,13 @@ The material is organized as a series of Jupyter notebooks covering scientific p
 
 👉 **[Go to the English material](./EN/)**
 
----
+% ---
 
-## 📚 Contenido / Contents
+%## 📚 Contenido / Contents
 
-| 🇪🇸 Español | 🇬🇧 English |
-|---|---|
-| [Material en español](./ES/) | [English material](./EN/) |
+%| 🇪🇸 Español | 🇬🇧 English |
+%|---|---|
+%| [Material en español](./ES/) | [English material](./EN/) |
 
 ---
 
