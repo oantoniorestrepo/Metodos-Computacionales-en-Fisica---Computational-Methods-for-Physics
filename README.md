@@ -24,19 +24,8 @@ The material is organized as a series of Jupyter notebooks covering scientific p
 
 👉 **[Go to the English material](./EN/)**
 
-% ---
-
-%## 📚 Contenido / Contents
-
-%| 🇪🇸 Español | 🇬🇧 English |
-%|---|---|
-%| [Material en español](./ES/) | [English material](./EN/) |
-
 ---
 
 ## 🛠️ Requisitos / Requirements
 
-Para ejecutar los notebooks localmente / To run the notebooks locally:
-
-```bash
-pip install -r requirements.txt
+Para ejecutar los notebooks localmente / To run the notebooks locally.
