@@ -11,8 +11,6 @@ Material del curso de **Métodos Computacionales en Física**. (Curso de segundo
 
 ## 📚 Contenido
 
-Cada notebook tiene un botón **Open in Colab**: lo abre directamente en tu navegador, sin instalar nada, con la última versión del archivo en la rama `main`.
-
 ### 1. Introducción y herramientas
 
 | # | Notebook | Descripción | Colab |
