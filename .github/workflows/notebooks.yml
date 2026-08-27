@@ -1,77 +1,105 @@
 name: Ejecutar notebooks
 
+# Se dispara en cada push y en cada pull request a main.
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
+  workflow_dispatch:   # permite lanzarlo manualmente desde la pestaña Actions
 
 jobs:
   run-notebooks:
-    name: Ejecutar notebooks (${{ matrix.language }})
     runs-on: ubuntu-latest
-
     strategy:
-      fail-fast: false
+      fail-fast: false   # que un notebook falle no cancela los demás
       matrix:
-        language: [ES, EN]
+        notebook:
+          # --- ES ---
+          - ES/Clases_1_2_3_Introduccion_y_Preliminares.ipynb
+          - ES/04_Representacion_Binaria.ipynb
+          - ES/05_Teoria_de_Errores.ipynb
+          - ES/06_Estabilidad_Numerica.ipynb
+          - ES/Clases_7_8_9_Raices.ipynb
+          - ES/Clases_10_11_12_Interpolacion.ipynb
+          - ES/13_Diferenciacion.ipynb
+          - ES/Clases_14_15_16_Integrales_Numericas.ipynb
+          - ES/Clases_17_18_Algebra_Lineal.ipynb
+          - ES/Clases_19_20_Matrices.ipynb
+          - ES/Clases_24_25_26_Estadistica_y_Monte_Carlo.ipynb
+          # --- EN ---
+          - EN/Classes_1_2_3_Introduction_and_Preliminaries.ipynb
+          - EN/04_Binary_Representation.ipynb
+          - EN/05_Error_Theory.ipynb
+          - EN/06_Numerical_Stability.ipynb
+          - EN/Classes_7_8_9_Roots.ipynb
+          - EN/Classes_10_11_12_Interpolation.ipynb
+          - EN/13_Differentiation.ipynb
+          - EN/Classes_14_15_16_Numerical_Integration.ipynb
+          - EN/Classes_17_18_Linear_Algebra.ipynb
+          - EN/Classes_19_20_Matrices.ipynb
+          - EN/Classes_24_25_26_Statistics_and_Monte_Carlo.ipynb
+          # NOTA: Clases 21-23 (EDO) quedan fuera de esta lista a propósito.
+          # Ese notebook usa animaciones con backend Qt5Agg pensadas para
+          # verse en una sesión local de Jupyter; no tiene sentido "aprobar"
+          # su ejecución en un entorno headless sin pantalla. Se valida
+          # aparte en el job run-edo-headless de abajo (solo que no truene,
+          # sin esperar ver la animación).
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Configurar Python
+      - name: Instalar Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-          cache: "pip"
+          python-version: '3.11'
 
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install papermill
+          pip install jupyter nbconvert ipykernel \
+                      numpy scipy matplotlib sympy numba
 
-      - name: Ejecutar notebooks
-        shell: bash
+      - name: Ejecutar ${{ matrix.notebook }}
+        env:
+          MPLBACKEND: Agg   # backend sin pantalla, para que matplotlib no falle
         run: |
-          set -e
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=1200 \
+            --output /tmp/out.ipynb \
+            "${{ matrix.notebook }}"
 
-          LANGUAGE="${{ matrix.language }}"
+  run-edo-headless:
+    # Caso especial: Clases 21-23 (EDO). Se ejecuta igual para detectar
+    # errores de código, pero las celdas de animación (que abren una
+    # ventana Qt5) no van a mostrar nada en este entorno -- eso es
+    # esperado. Para ver las animaciones hay que descargar el notebook
+    # y correrlo en Jupyter localmente.
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        notebook:
+          - ES/Clases_21_22_23_Metodos_de_integracion_EDO.ipynb
+          - EN/Classes_21_22_23_ODE_Integration_Methods.ipynb
+    steps:
+      - uses: actions/checkout@v4
 
-          echo "======================================"
-          echo "Ejecutando notebooks de: $LANGUAGE"
-          echo "======================================"
-
-          mkdir -p /tmp/executed_notebooks/$LANGUAGE
-
-          shopt -s nullglob
-          notebooks=("$LANGUAGE"/*.ipynb)
-
-          if [ ${#notebooks[@]} -eq 0 ]; then
-            echo "ERROR: No se encontraron notebooks en $LANGUAGE/"
-            exit 1
-          fi
-
-          for notebook in "${notebooks[@]}"; do
-
-            filename=$(basename "$notebook")
-
-            echo ""
-            echo "--------------------------------------"
-            echo "Ejecutando: $notebook"
-            echo "--------------------------------------"
-
-            papermill \
-              "$notebook" \
-              "/tmp/executed_notebooks/$LANGUAGE/${filename%.ipynb}_output.ipynb"
-
-          done
-
-      - name: Guardar notebooks ejecutados
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Instalar Python
+        uses: actions/setup-python@v5
         with:
-          name: notebooks-ejecutados-${{ matrix.language }}
-          path: /tmp/executed_notebooks/${{ matrix.language }}/
-          if-no-files-found: warn
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install jupyter nbconvert ipykernel numpy scipy matplotlib sympy
+
+      - name: Ejecutar ${{ matrix.notebook }} (sin verificar animaciones)
+        env:
+          MPLBACKEND: Agg
+        run: |
+          jupyter nbconvert --to notebook --execute \
+            --ExecutePreprocessor.timeout=1200 \
+            --output /tmp/out.ipynb \
+            "${{ matrix.notebook }}"
