@@ -17,24 +17,24 @@ jobs:
         notebook:
           # --- ES ---
           - ES/Clases_1_2_3_Introduccion_y_Preliminares.ipynb
-          - ES/04_Representacion_Binaria.ipynb
-          - ES/05_Teoria_de_Errores.ipynb
-          - ES/06_Estabilidad_Numerica.ipynb
+          - ES/Clase_04_Representacion_Binaria.ipynb
+          - ES/Clase_05_Teoria_de_Errores.ipynb
+          - ES/Clase_06_Estabilidad_Numerica.ipynb
           - ES/Clases_7_8_9_Raices.ipynb
           - ES/Clases_10_11_12_Interpolacion.ipynb
-          - ES/13_Diferenciacion.ipynb
+          - ES/Clase_13_Diferenciacion.ipynb
           - ES/Clases_14_15_16_Integrales_Numericas.ipynb
           - ES/Clases_17_18_Algebra_Lineal.ipynb
           - ES/Clases_19_20_Matrices.ipynb
           - ES/Clases_24_25_26_Estadistica_y_Monte_Carlo.ipynb
           # --- EN ---
           - EN/Classes_1_2_3_Introduction_and_Preliminaries.ipynb
-          - EN/04_Binary_Representation.ipynb
-          - EN/05_Error_Theory.ipynb
-          - EN/06_Numerical_Stability.ipynb
+          - EN/Class_04_Binary_Representation.ipynb
+          - EN/Class_05_Error_Theory.ipynb
+          - EN/Class_06_Numerical_Stability.ipynb
           - EN/Classes_7_8_9_Roots.ipynb
           - EN/Classes_10_11_12_Interpolation.ipynb
-          - EN/13_Differentiation.ipynb
+          - EN/Class_13_Differentiation.ipynb
           - EN/Classes_14_15_16_Numerical_Integration.ipynb
           - EN/Classes_17_18_Linear_Algebra.ipynb
           - EN/Classes_19_20_Matrices.ipynb
