@@ -23,9 +23,3 @@ Repository for the **Computational Methods in Physics** course.
 The material is organized as a series of Jupyter notebooks covering scientific programming, numerical methods, and computational applications to physics problems.
 
 👉 **[Go to the English material](./EN/)**
-
----
-
-## 🛠️ Requisitos / Requirements
-
-Para ejecutar los notebooks localmente / To run the notebooks locally.
