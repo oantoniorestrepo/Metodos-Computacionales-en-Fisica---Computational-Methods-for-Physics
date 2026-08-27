@@ -65,4 +65,4 @@ Los notebooks que incluyen imágenes (diagramas, capturas de métodos, etc.) las
 
 ## ▶️ Cómo usar estos notebooks
 
-Cada notebook es autocontenido, basta con ejecutarlo de principio a fin, ya sea localmente o con el botón **Open in Colab** de la tabla de arriba. Algunos notebooks requieren descargarse pues abren ventanas emergentes, como las Clases 13 o 21-23 (EDO) que deben ejecutarse de manera local, ya que sus celdas de animación dependen ventana emergente.
+Cada notebook es autocontenido, basta con ejecutarlo de principio a fin, ya sea localmente o con el botón **Open in Colab** de la tabla de arriba. Algunos notebooks requieren descargarse pues abren ventanas emergentes, como las Clases 13 o 21-23 (EDO) que deben ejecutarse de manera local, ya que sus celdas de animación dependen de una ventana emergente.
