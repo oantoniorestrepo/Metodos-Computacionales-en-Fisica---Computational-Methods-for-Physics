@@ -11,8 +11,6 @@ Course material for **Computational Methods in Physics**. (Second-year undergrad
 
 ## 📚 Contents
 
-Each notebook has an **Open in Colab** button: it opens directly in your browser, no installation needed, with the latest version of the file on the `main` branch.
-
 ### 1. Introduction and tools
 
 | # | Notebook | Description | Colab |
