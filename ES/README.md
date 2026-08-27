@@ -49,7 +49,7 @@ Cada notebook tiene un botón **Open in Colab**: lo abre directamente en tu nave
 |---|---|---|---|
 | 21–23 | [Métodos de Integración de EDO](./Clases_21_22_23_Metodos_de_integracion_EDO.ipynb) ⚠️ | Definiciones básicas y sistemas de EDO de primer orden, método de Euler, métodos de Verlet y leapfrog, Runge-Kutta de segundo orden (rk2) y cuarto orden (rk4), estabilidad y atractores, espacio fásico, método de Runge-Kutta-Fehlberg (rk45). | — |
 
-> ⚠️ **Este notebook no tiene botón de Colab a propósito.** Varias celdas abren una ventana interactiva (backend `Qt5Agg`) para animar el péndulo, las órbitas y el atractor de Lorenz en tiempo real. Ni Colab ni CI tienen pantalla, así que esas celdas no muestran nada ahí (el notebook corre igual, sin errores, pero sin animación). **Para ver las animaciones, descarga el notebook y ejecútalo en Jupyter en tu computador.**
+> ⚠️ **Este notebook no tiene botón de Colab a propósito.** Varias celdas abren una ventana interactiva (backend `Qt5Agg`) para animar el péndulo, las órbitas y el atractor de Lorenz en tiempo real. **Para ver las animaciones, descarga el notebook y ejecútalo en Jupyter en tu computador.**
 
 ### 6. Estadística y simulación
 
