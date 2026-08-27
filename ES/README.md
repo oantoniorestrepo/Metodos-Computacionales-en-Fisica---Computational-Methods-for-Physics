@@ -1,6 +1,6 @@
 # 🇪🇸 Métodos Computacionales en Física
 
-Material del curso de **Métodos Computacionales en Física**.
+Material del curso de **Métodos Computacionales en Física**. (Curso de segundo año del pregado de Física).
 
 [← Volver al README principal](../README.md)
 [🇬🇧 English version](../EN/README.md)
@@ -20,14 +20,14 @@ Cada notebook tiene un botón **Open in Colab**: lo abre directamente en tu nave
 | 1–3 | [Introducción y Preliminares](./Clases_1_2_3_Introduccion_y_Preliminares.ipynb) | Entorno de trabajo, Python y Jupyter; tipos de datos, condicionales y bucles; listas, tuplas, diccionarios y arrays de numpy; funciones, `args`/`kwargs` y librerías científicas básicas (numpy, matplotlib); programación orientada a objetos (clases, herencia, decoradores, métodos de clase). | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/blob/main/ES/Clases_1_2_3_Introduccion_y_Preliminares.ipynb) |
 | 4 | [Representación Binaria](./04_Representacion_Binaria.ipynb) | Representación de enteros y números de punto flotante en binario, estándar IEEE 754 (32 y 64 bits), operaciones bit a bit (`bitwise`). | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/blob/main/ES/04_Representacion_Binaria.ipynb) |
 
-### 2. Computación científica
+### 2. Teoría de errores y estabilidad
 
 | # | Notebook | Descripción | Colab |
 |---|---|---|---|
 | 5 | [Teoría de Errores](./05_Teoria_de_Errores.ipynb) | *Overflow*/*underflow*, épsilon de máquina, tipos de error, cancelación sustractiva, catástrofes numéricas en la ecuación cuadrática. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/blob/main/ES/05_Teoria_de_Errores.ipynb) |
 | 6 | [Estabilidad Numérica](./06_Estabilidad_Numerica.ipynb) | Error local y global, estabilidad algorítmica (crecimiento lineal vs. exponencial del error), linealidad del tiempo de cómputo. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/oantoniorestrepo/Metodos-Computacionales-en-Fisica---Computational-Methods-for-Physics/blob/main/ES/06_Estabilidad_Numerica.ipynb) |
 
-### 3. Métodos numéricos
+### 3. Raices, interpolación, diferenciación e integración
 
 | # | Notebook | Descripción | Colab |
 |---|---|---|---|
@@ -51,10 +51,7 @@ Cada notebook tiene un botón **Open in Colab**: lo abre directamente en tu nave
 
 > ⚠️ **Este notebook no tiene botón de Colab a propósito.** Varias celdas abren una ventana interactiva (backend `Qt5Agg`) para animar el péndulo, las órbitas y el atractor de Lorenz en tiempo real. Ni Colab ni CI tienen pantalla, así que esas celdas no muestran nada ahí (el notebook corre igual, sin errores, pero sin animación). **Para ver las animaciones, descarga el notebook y ejecútalo en Jupyter en tu computador.**
 
-### 6. Aplicaciones a la física
-*Próximamente.*
-
-### 7. Estadística y simulación
+### 6. Estadística y simulación
 
 | # | Notebook | Descripción | Colab |
 |---|---|---|---|
@@ -68,11 +65,4 @@ Los notebooks que incluyen imágenes (diagramas, capturas de métodos, etc.) las
 
 ## ▶️ Cómo usar estos notebooks
 
-Cada notebook es autocontenido dentro de su rango de clases (por ejemplo, `Clases_7_8_9_Raices.ipynb` incluye todo lo necesario para las tres clases, sin depender de otros notebooks); basta con ejecutarlo de principio a fin, ya sea localmente o con el botón **Open in Colab** de la tabla de arriba.
-
-## ✅ Integración continua (CI)
-
-Este repositorio usa [GitHub Actions](../.github/workflows/test-notebooks.yml) para ejecutar automáticamente **todos** los notebooks (ES y EN) en cada `push` y cada *pull request*: si alguna celda lanza un error, el workflow falla y queda registrado en la pestaña *Actions* del repositorio, antes de que el problema llegue a `main`.
-
-La Clase 21-23 (EDO) se ejecuta en un job aparte, ya que sus celdas de animación dependen de una pantalla; ahí solo se valida que el código no truene, no que la animación se vea (eso solo se puede comprobar en local).
-READMEEOF
+Cada notebook es autocontenido, basta con ejecutarlo de principio a fin, ya sea localmente o con el botón **Open in Colab** de la tabla de arriba. Algunos notebooks requieren descargarse pues abren ventanas emergentes, como las Clases 13 o 21-23 (EDO) que deben ejecutarse de manera local, ya que sus celdas de animación dependen ventana emergente.
